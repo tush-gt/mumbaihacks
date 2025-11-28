@@ -40,7 +40,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Title
-st.markdown('<p class="title">🎭 DetectoAI — Deepfake Detection Web App</p>', unsafe_allow_html=True)
+st.markdown('<p class="title"> DetectoAI — Deepfake Detection Web App</p>', unsafe_allow_html=True)
 st.markdown('<p class="subtitle">Analyze video using Audio–Gesture Synchronization and Agentic Reasoning</p>',
             unsafe_allow_html=True)
 
@@ -51,7 +51,7 @@ st.markdown('<p class="subtitle">Analyze video using Audio–Gesture Synchroniza
 
 # Upload section
 st.markdown('<div class="upload-box">', unsafe_allow_html=True)
-uploaded_video = st.file_uploader("📤 Upload your MP4 video file", type=["mp4"])
+uploaded_video = st.file_uploader(" Upload your MP4 video file", type=["mp4"])
 st.markdown('</div>', unsafe_allow_html=True)
 
 if uploaded_video is not None:
@@ -59,13 +59,13 @@ if uploaded_video is not None:
     st.success("Video Uploaded Successfully! 🎉")
 
     if st.button("🔍 Start Deepfake Analysis", use_container_width=True):
-        with st.spinner("Agentic AI is analyzing the video... 🧠✨"):
+        with st.spinner("Agentic AI is analyzing the video..."):
             # Temporary placeholder values
             result = "Fake"
             confidence = "78%"
             reason = "Detected mismatch between audio energy peaks and lip motion intensity from timestamps 04s – 11s."
 
-        st.header("📌 Detection Result")
+        st.header("Detection Result")
 
         col1, col2 = st.columns(2)
         with col1:
@@ -73,10 +73,10 @@ if uploaded_video is not None:
         with col2:
             st.metric(label="Confidence", value=confidence)
 
-        st.subheader("🧠 Agentic Explanation")
+        st.subheader("Agentic Explanation")
         st.info(reason)
 
-        st.subheader("📊 Synchronization Graph")
+        st.subheader("Synchronization Graph")
         st.line_chart([1, 3, 5, 2, 8, 3, 1])  # placeholder chart
 
-        st.success("Analysis Complete ✨ Feel free to upload another video!")
+        st.success("Analysis Complete Feel free to upload another video!")
