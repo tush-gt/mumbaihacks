@@ -9,7 +9,7 @@ def extract_lip_motion(video_path):
     motion_values = []
 
     if not cap.isOpened():
-        print("❌ Error opening video file")
+        print("Error opening video file")
         return np.array([])
 
     with mp_holistic.Holistic(
