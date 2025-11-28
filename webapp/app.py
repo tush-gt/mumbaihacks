@@ -1,10 +1,14 @@
+import sys
+import os
+sys.path.append(os.path.abspath(".."))
 import streamlit as st
 from streamlit_lottie import st_lottie
 import json
 import cloudinary
 import cloudinary.uploader
 from dotenv import load_dotenv
-import os
+from backend.processing import download_video, extract_frames
+
 
 # =========== Cloudinary Setup ===========
 load_dotenv()
@@ -89,14 +93,15 @@ if uploaded_video is not None:
     # ============ ANALYSIS BUTTON ============
     if st.button("🔍 Start Deepfake Analysis", use_container_width=True):
         with st.spinner("🤖 Agentic AI is analyzing the video..."):
+            downloaded_path = download_video(video_url)
+            frame_count = extract_frames(downloaded_path)
 
-            # ---------------------
-            # Backend logic placeholder
-            # (Will be replaced once backend is ready)
-            # ---------------------
+            st.write(f"🎞 Extracted {frame_count} frames successfully!")
+
+            # Placeholder until we add AI logic
             result = "Fake"
             confidence = "78%"
-            reason = "Detected mismatch between audio energy peaks and lip motion intensity from timestamps 04s – 11s."
+            reason = "Detected mismatch between audio energy peaks and lip motion intensity."
             chart_data = [1, 4, 2, 7, 3, 6, 1]
 
         st.header("📌 Detection Result")
